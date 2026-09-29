@@ -70,7 +70,7 @@
 
             </div>
             <div class="button">
-                <a class="more" href="./blog.html">View More</a>
+                <a class="more" href="<?php echo esc_url(get_permalink(get_page_by_path('blog'))); ?>">View More</a>
             </div>
         </div>
     </section>

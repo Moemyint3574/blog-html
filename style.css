@@ -348,6 +348,10 @@ header .inner {
     border-radius: 30px;
 }
 
+.more:hover {
+    background-color: #D8efdc;
+}
+
 .about {
     margin-top: 110px;
 }
@@ -969,10 +973,9 @@ main .nagoya .inner {
 
 /*About.html*/
 
-.about .inner {
+/* .about .inner {
     margin-top: 250px;
-}
-
+} */
 
 @media (690px < width) {
     header {
@@ -1165,4 +1168,18 @@ main .nagoya .inner {
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
+}
+
+.page-numbers {
+    margin-bottom: 30px;
+    margin-top: 20px;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #375111;
+    font-weight: 500;
+    border-radius: 20px;
+}
+
+.pagination .page-numbers:hover {
+    background-color: #D8efdc;
 }
