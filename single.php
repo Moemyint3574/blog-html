@@ -29,39 +29,35 @@
             </div>
 
             <h2><?php the_title(); ?></h2>
-            <img class="sakuraimg" src="<?php echo esc_url(get_theme_file_uri('/img/nanzenji_sakura_3985-1536x1025.png')); ?>" alt="">
+            <!-- <img class="sakuraimg" src="<?php echo esc_url(get_theme_file_uri('/img/nanzenji_sakura_3985-1536x1025.png')); ?>" alt=""> -->
             <?php the_content(); ?>
 
             <div class="button">
                 <?php
+                $previous_post = get_previous_post();
                 $next_post = get_next_post();
                 ?>
 
-                <?php if ($next_post) : ?>
+                <div class="post-navigation">
 
-                    <a class="next" href="<?php echo esc_url(get_permalink($next_post->ID)); ?>">
-                        NEXT
-                    </a>
+                    <?php if ($previous_post) : ?>
+                        <a class="previous" href="<?php echo esc_url(get_permalink($previous_post->ID)); ?>">
+                            PREVIOUS
+                        </a>
+                    <?php endif; ?>
 
-                <?php else : ?>
+                    <?php if ($next_post) : ?>
+                        <a class="next" href="<?php echo esc_url(get_permalink($next_post->ID)); ?>">
+                            NEXT
+                        </a>
+                    <?php endif; ?>
 
-                    <a class="next" href="<?php echo esc_url(home_url('/')); ?>">
-                        NEXT
-                    </a>
-
-                <?php endif; ?>
+                </div>
             </div>
 
 
             <?php comments_template(); ?>
-            <!-- <div class="comment">
-                <h2>COMMENT BOX</h2>
-                <textarea class="comment-area" placeholder="コメントを入力してください"></textarea>
 
-                <div class="submit">
-                    <a href="#">SUBMIT</a>
-                </div>
-            </div> -->
             <div class="top">
                 <a href="<?php echo esc_url(home_url('/')); ?>">
                     <img src="<?php echo esc_url(get_theme_file_uri('/img/leaf2.svg')); ?>" width=" 50px" alt=""></a>

@@ -42,3 +42,11 @@ function mytheme_enqueue_scripts()
     wp_enqueue_script('my-script', get_theme_file_uri('/script.js'), array(), filemtime(get_theme_file_path('/script.js')), true);
 }
 add_action('wp_enqueue_scripts', 'mytheme_enqueue_scripts');
+
+function restrict_search_to_posts($query)
+{
+    if (! is_admin() && $query->is_main_query() && $query->is_search()) {
+        $query->set('post_type', 'post');
+    }
+}
+add_action('pre_get_posts', 'restrict_search_to_posts');

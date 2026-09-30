@@ -13,7 +13,7 @@
 
                 $args = array(
                     'post_type'      => 'post',
-                    'posts_per_page' => 10,
+                    'posts_per_page' => 2,
                     'paged'          => $paged, // ② 取得したページ番号を条件にセットする
                 );
 
@@ -30,7 +30,7 @@
 
                                     <?php if (has_post_thumbnail()) : ?>
 
-                                        <?php the_post_thumbnail('thumbnail'); ?>
+                                        <?php the_post_thumbnail('medium-large'); ?>
 
                                     <?php else : ?>
 

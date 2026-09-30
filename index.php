@@ -27,7 +27,7 @@
 
                                     <?php if (has_post_thumbnail()) : ?>
 
-                                        <?php the_post_thumbnail('thumbnail'); ?>
+                                        <?php the_post_thumbnail('medium-large'); ?>
 
                                     <?php else : ?>
 
@@ -98,37 +98,58 @@
 
     <section id="category" class="category">
         <div class="inner">
+
             <h2>
                 <span>CATEGORY</span>
-                <img class="leaf-icon" src="<?php echo esc_url(get_theme_file_uri('/img/leaf2.svg')); ?>" alt="">
+                <img
+                    class="leaf-icon"
+                    src="<?php echo esc_url(get_theme_file_uri('/img/leaf2.svg')); ?>"
+                    alt="">
             </h2>
+
             <div class="category-list">
-                <a href="<?php echo esc_url(get_category_link(get_cat_ID('Personal'))); ?>">
-                    <div class="category-item">
-                        <dt>Personal</dt>
-                        <dd>はじめまして</dd>
-                    </div>
-                </a>
-                <a href="<?php echo esc_url(get_category_link(get_cat_ID('Personal'))); ?>">
-                    <div class="category-item">
-                        <dt>Personal</dt>
-                        <dd>名古屋駅周辺探索</dd>
-                    </div>
-                </a>
-                <a href="<?php echo esc_url(get_category_link(get_cat_ID('Personal'))); ?>">
-                    <div class="category-item">
-                        <dt>Personal</dt>
-                        <dd>おすすめWebサイト</dd>
-                    </div>
-                </a>
-                <a href="<?php echo esc_url(get_category_link(get_cat_ID('Personal'))); ?>">
-                    <div class="category-item">
-                        <dt>Personal</dt>
-                        <dd>地元のスポート紹介</dd>
-                    </div>
-                </a>
+
+                <?php
+                $category_posts = new WP_Query(array(
+                    'posts_per_page' => 4,
+                ));
+                ?>
+
+                <?php if ($category_posts->have_posts()) : ?>
+
+                    <?php while ($category_posts->have_posts()) : $category_posts->the_post(); ?>
+
+                        <?php
+                        $categories = get_the_category();
+
+                        if (!empty($categories)) :
+                            $category = $categories[0];
+                        ?>
+
+                            <a
+                                href="<?php echo esc_url(get_category_link($category->term_id)); ?>"
+                                class="category-item">
+
+                                <span class="category-name">
+                                    <?php echo esc_html($category->name); ?>
+                                </span>
+
+                                <span class="category-title">
+                                    <?php the_title(); ?>
+                                </span>
+
+                            </a>
+
+                        <?php endif; ?>
+
+                    <?php endwhile; ?>
+
+                    <?php wp_reset_postdata(); ?>
+
+                <?php endif; ?>
 
             </div>
+
         </div>
     </section>
     <div class="top">

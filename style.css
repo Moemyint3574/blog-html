@@ -204,45 +204,6 @@ header .inner {
     margin: 130px 0;
 }
 
-/* .box {
-    padding: 125px 0;
-    width: 100%;
-    height: 300px;
-    background-color: #D8efdc;
-    border: 2px solid #567D1D;
-    border-radius: 10px;
-    position: relative;
-} */
-
-/* .box {
-    padding: 125px 0;
-    width: 100%;
-    height: 300px;
-    background-color: #D8efdc;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: 2px solid #567D1D;
-    border-radius: 10px;
-    position: relative;
-}
-
-.box.box2 {
-    background-image: url("./img/bridge.png");
-}
-
-.box.box1 {
-    background-image: url("./img/introduction.png");
-}
-
-.box.box3 {
-    background-image: url("./img/amazon.png");
-}
-
-.box.box4 {
-    background-image: url("./img/country spot.png");
-} */
-
 .box {
     width: 100%;
     height: 300px;
@@ -336,7 +297,9 @@ header .inner {
 }
 
 .button {
-    text-align: right;
+    /* text-align: right; */
+    margin-top: 30px;
+    text-align: initial;
 }
 
 .more {
@@ -677,21 +640,6 @@ main .nagoya .inner {
 
 
 /* each item */
-
-/* .category-item {
-    position: relative;
-
-    display: grid;
-    grid-template-columns: 80px 1fr 60px;
-    align-items: center;
-
-    min-height: 150px;
-    padding: 25px 45px;
-
-    border-bottom: 1px solid #375111;
-
-    transition: 0.3s;
-} */
 
 .category-item {
     position: relative;
@@ -1181,5 +1129,26 @@ main .nagoya .inner {
 }
 
 .pagination .page-numbers:hover {
+    background-color: #D8efdc;
+}
+
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.previous,
+.next {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #375111;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.previous:hover,
+.next:hover {
     background-color: #D8efdc;
 }
